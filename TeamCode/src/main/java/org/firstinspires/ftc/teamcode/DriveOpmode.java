@@ -13,10 +13,12 @@ public class DriveOpmode extends CommandOpMode {
         super.reset();
         driver1 = new GamepadEx(gamepad1);
         driver1.getGamepadButton(GamepadKeys.Button.A).whenPressed(new DriveForwardCommand(drive));
+        driver1 = new GamepadEx(gamepad1);
+        driver1.getGamepadButton(GamepadKeys.Button.A).whenPressed(new DriveForwardCommand(drive));
     }
 
     @Override
     public void run() {
-
+        super.run();
     }
 }
