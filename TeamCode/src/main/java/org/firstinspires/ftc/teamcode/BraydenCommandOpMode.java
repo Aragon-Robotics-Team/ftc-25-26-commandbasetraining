@@ -18,7 +18,7 @@ public class BraydenCommandOpMode extends CommandOpMode {
         clawCloseButton.whenPressed(new ClawClose(claw));
 
         Button crabButton = driver1.getGamepadButton(GamepadKeys.Button.B);
-        clawCloseButton.whenPressed(new CrabCommand(claw));
+        crabButton.whenPressed(new CrabCommand(claw));
 
 
 
