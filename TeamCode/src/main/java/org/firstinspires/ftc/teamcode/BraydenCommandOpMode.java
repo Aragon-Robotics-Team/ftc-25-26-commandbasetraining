@@ -17,6 +17,11 @@ public class BraydenCommandOpMode extends CommandOpMode {
         Button clawCloseButton = driver1.getGamepadButton(GamepadKeys.Button.A);
         clawCloseButton.whenPressed(new ClawClose(claw));
 
+        Button crabButton = driver1.getGamepadButton(GamepadKeys.Button.B);
+        clawCloseButton.whenPressed(new CrabCommand(claw));
+
+
+
     }
 
     @Override
