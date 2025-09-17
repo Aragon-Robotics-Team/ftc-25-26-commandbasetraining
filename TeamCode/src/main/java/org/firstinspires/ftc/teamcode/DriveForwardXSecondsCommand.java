@@ -1,7 +1,8 @@
 package org.firstinspires.ftc.teamcode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.seattlesolvers.solverslib.command.CommandBase;
-
+@TeleOp(name = "Drive Forward X Seconds")
 public class DriveForwardXSecondsCommand extends CommandBase {
     enum commandState {
         DRIVEFORWARD, TURN, DRIVEFORWARD2;
