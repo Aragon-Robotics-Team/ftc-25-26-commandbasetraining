@@ -29,12 +29,14 @@ public class CrabCommand extends CommandBase {
             case OPEN:
                 if (time.time() >= 0.4) {
                     state = commandState.CLOSE;
+                    claw.clawClose();
                     time.reset();
                 }
                 break;
             case CLOSE:
                 if (time.time() >= 0.4) {
                     state = commandState.OPEN;
+                    claw.clawOpen();
                     time.reset();
                 }
                 break;
@@ -43,8 +45,10 @@ public class CrabCommand extends CommandBase {
 
     @Override
     public boolean isFinished() {
-//        return helpme.time() < 5;
-        return false;
+        if(helpme.time() < 5) {
+            return false;
+        }
+        return true;
     }
 
     @Override

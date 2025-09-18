@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.seattlesolvers.solverslib.command.CommandBase;
-@TeleOp(name = "Drive Forward")
+
 public class DriveForwardCommand extends CommandBase {
     private final DriveSubsystem driveSubsystem;
     public DriveForwardCommand(DriveSubsystem subsystem) {
