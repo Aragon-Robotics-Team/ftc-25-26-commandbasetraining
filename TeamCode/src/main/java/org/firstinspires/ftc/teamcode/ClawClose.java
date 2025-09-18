@@ -7,7 +7,7 @@ public class ClawClose extends CommandBase {
 
     public ClawClose(BraydenSubSystem subSystem) {
         claw = subSystem;
-        //add requirements
+
     }
 
     @Override
