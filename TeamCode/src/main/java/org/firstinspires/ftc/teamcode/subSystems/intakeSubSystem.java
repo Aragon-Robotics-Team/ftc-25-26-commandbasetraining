@@ -16,6 +16,7 @@ public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
 
     }
     public PivotState pivotState  = PivotState.TUCKED;
+    private 
     private Servo intakeWrist;
     private DcMotor flyWheel;
     private DcMotor extendo;
@@ -41,8 +42,15 @@ public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
     public void setPivot(PivotState state) {
         switch (state) {
             case TUCKED:
-                intakeWrist.setPosition(0.0); //replace with constant
+                intakeWrist.setPosition(0.0); //replace with constant UP
+                break;
             case TRANSFER:
+                intakeWrist.setPosition(0.0); //replace with constant UP
+                break;
+            case INTAKING:
+                intakeWrist.setPosition(1.0); //replace with constant DOWN
+                flyWheel.setPower(1.0); //replace with constant
+                break;
 
         }
 
