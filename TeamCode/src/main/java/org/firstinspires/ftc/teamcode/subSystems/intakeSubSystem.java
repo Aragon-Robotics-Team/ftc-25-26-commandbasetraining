@@ -15,18 +15,27 @@ public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
         INTAKING, TRANSFER, TUCKED
 
     }
+
+    enum ExtendoState {
+        EXTENDED, TRANSFER, TUCKED
+    }
+
+    enum
     public PivotState pivotState  = PivotState.TUCKED;
-    private 
+    private DcMotor extendo;
     private Servo intakeWrist;
     private DcMotor flyWheel;
-    private DcMotor extendo;
     //methods: setPivot, setExtendoTarget, setIntake
 
     public intakeSubSystem(final HardwareMap hMap,final String name) {
         intakeWrist = hMap.get(Servo.class, name);
         flyWheel = hMap.get(DcMotor.class, name);
+        flyWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        extendo = hMap.get(DcMotor.class, name);
+        extendo.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
+    /*
     public void intakeFlyWheel() {
         flyWheel.setPower(1.0); //replace with constant
     }
@@ -39,6 +48,9 @@ public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
         intakeWrist.setPosition(0.0); //replace with constant
     }
 
+     */
+
+
     public void setPivot(PivotState state) {
         switch (state) {
             case TUCKED:
@@ -49,11 +61,14 @@ public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
                 break;
             case INTAKING:
                 intakeWrist.setPosition(1.0); //replace with constant DOWN
-                flyWheel.setPower(1.0); //replace with constant
                 break;
 
         }
 
+    }
+
+    public void setExtendoTarget() {
+        
     }
 
 }
