@@ -2,10 +2,11 @@ package org.firstinspires.ftc.teamcode.subSystems;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.seattlesolvers.solverslib.command.SubsystemBase;
 
 import org.firstinspires.ftc.teamcode.Constants;
 
-public class DepositSubsystem {
+public class DepositSubsystem extends SubsystemBase {
     // bar, wrist, claw
 
     private Servo bar;
