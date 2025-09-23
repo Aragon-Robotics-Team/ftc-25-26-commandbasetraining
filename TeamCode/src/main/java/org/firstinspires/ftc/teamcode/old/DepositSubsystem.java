@@ -12,11 +12,11 @@ public class DepositSubsystem {
     private Servo wrist;
     private Servo claw;
 
-    enum subsystemState {
+    enum SubsystemState {
         TRANSFER, AUTOINIT, WALL, BUCKET, CLIP, NEUTRAL;
     }
 
-    private subsystemState depositState = subsystemState.NEUTRAL;
+    private SubsystemState depositState = SubsystemState.NEUTRAL;
 
     public DepositSubsystem(final HardwareMap hMap, final String name) {
         bar = hMap.get(Servo.class, "bar");
@@ -32,7 +32,7 @@ public class DepositSubsystem {
         claw.setPosition(Constants.CLAW_CLOSE);
     }
 
-    public void setPivot(subsystemState state) {
+    public void setPivot(SubsystemState state) {
         switch (state) {
             case TRANSFER:
                 bar.setPosition(Constants.BAR_TRANSFER);
