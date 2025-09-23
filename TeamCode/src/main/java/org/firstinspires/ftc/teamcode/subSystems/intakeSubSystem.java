@@ -67,8 +67,19 @@ public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
 
     }
 
-    public void setExtendoTarget() {
-        
+    public void setExtendo(ExtendoState state) {
+        switch (state) {
+            case TUCKED:
+                extendo.setTargetPosition(1.0); //replace with PID + constants
+                break;
+            case TRANSFER:
+                // add possible logic like IF already tucked then you don't need to change transfer
+                extendo.setTargetPosition(1.0); //replace with PID + constants
+                break;
+            case EXTENDED:
+                extendo.setTargetPosition(1.0); //replace with PID + constants
+                break;
+        }
     }
 
 }
