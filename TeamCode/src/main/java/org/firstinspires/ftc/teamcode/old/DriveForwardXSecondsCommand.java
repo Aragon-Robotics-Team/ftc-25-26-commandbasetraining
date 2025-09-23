@@ -19,12 +19,13 @@ public class DriveForwardXSecondsCommand extends CommandBase {
 
     @Override
     public void initialize() {
-        double y = 1; // Remember, Y stick is reversed!
+        double y = 0.4; // Remember, Y stick is reversed!
         double x = 0;
         double rx = 0;
         driveSubsystem.setDriveVectors(x, y, rx);
 
         stopwatch.reset();
+        state = commandState.DRIVEFORWARD;
     }
 
     @Override
@@ -33,7 +34,7 @@ public class DriveForwardXSecondsCommand extends CommandBase {
             case DRIVEFORWARD:
                 // placeholder code
                 driveSubsystem.setDriveVectors(0,1,0);
-                if (stopwatch.time() == 1) {
+                if (stopwatch.time() > 2) {
                     state = commandState.TURN;
                     stopwatch.reset();
                 }
@@ -41,7 +42,7 @@ public class DriveForwardXSecondsCommand extends CommandBase {
             case TURN:
                 // placeholder code
                 driveSubsystem.setDriveVectors(0,0,1);
-                if (stopwatch.time() > 1.1) {
+                if (stopwatch.time() > 2.1) {
                     state = commandState.DRIVEFORWARD2;
                     stopwatch.reset();
                 }
@@ -55,7 +56,7 @@ public class DriveForwardXSecondsCommand extends CommandBase {
 
     @Override
     public boolean isFinished() {
-        if (stopwatch.time() > 1 && state == commandState.DRIVEFORWARD2) {
+        if (stopwatch.time() > 5 && state == commandState.DRIVEFORWARD2) {
             return true;
         }
         else {
