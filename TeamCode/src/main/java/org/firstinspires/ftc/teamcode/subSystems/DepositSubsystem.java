@@ -13,7 +13,7 @@ public class DepositSubsystem extends SubsystemBase {
     private Servo wrist;
     private Servo claw;
 
-    enum SubsystemState {
+    public enum SubsystemState {
         TRANSFER, AUTOINIT, WALL, BUCKET, CLIP, NEUTRAL;
     }
 
