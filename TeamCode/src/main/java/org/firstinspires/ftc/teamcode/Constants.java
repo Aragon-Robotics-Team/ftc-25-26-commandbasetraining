@@ -18,7 +18,7 @@ public class Constants {
     public final static double WRIST_BUCKET = 0.77;
     public final static double WRIST_CLIP = 1;
     public final static double WRIST_NEUTRAL = 0.2;
-    
+
     //claw
     public final static double CLAW_OPEN = 0.55;
     public final static double CLAW_CLOSE = 0.78;
@@ -35,4 +35,11 @@ public class Constants {
     public final static double LED_YELLOW = 0.35;
     public final static double LED_BLUE = 0.6;
     public final static double LED_WHITE = 1;
+
+    //intakeWrist
+    public final static double INTAKEWRIST_IN = 0.16;
+    public final static double INTAKEWRIST_OUT = 0.95;
+    public final static double INTAKEWRIST_SUPEROUT = 0.97;
+    public final static double INTAKEWRIST_TRANSFER = 0.38;
+    public final static double INTAKEWRIST_SPIT = 0.8;
 }
