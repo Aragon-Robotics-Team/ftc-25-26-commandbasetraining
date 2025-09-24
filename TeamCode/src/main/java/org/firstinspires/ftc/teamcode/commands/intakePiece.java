@@ -7,6 +7,7 @@ import org.firstinspires.ftc.teamcode.old.CrabCommand;
 import org.firstinspires.ftc.teamcode.subSystems.intakeSubSystem;
 
 public class intakePiece extends CommandBase {
+
     //private final intakeSubSystem flyWheel;
     //private final intakeSubSystem intakeWrist;
     private final intakeSubSystem intake;
@@ -16,24 +17,39 @@ public class intakePiece extends CommandBase {
         //flyWheel = subSystem;
         //intakeWrist = subSystem;
         intake = subSystem;
+        //add requirements?????
     }
 
     @Override
-    public void initialize() { //what state do you want to initially start with (like setting motors or opening claws)
-        intake.wristUp();
+    public void initialize() {
+        //what state do you want to initially start with (like setting motors or opening claws)
+        intake.setPivot(intakeSubSystem.PivotState.TUCKED);
+        intake.setExtendoTarget(intakeSubSystem.ExtendoState.TUCKED);
+        intake.setIntake(intakeSubSystem.IntakeState.STOP);
         time.reset();
     }
 
     @Override
     public void execute() {
-        intake.wristDown();
+        intake.setExtendoTarget(intakeSubSystem.ExtendoState.EXTENDED);
+        intake.setPivot(intakeSubSystem.PivotState.INTAKING);
+
         time.reset();
-        switch (intakeSubSystem.state) {
-
+        while(time.time() <= 1.0) {
+            intake.setIntake(intakeSubSystem.IntakeState.FORWARD);
         }
-        intake.intakeFlyWheel();
 
+        intake.setPivot(intakeSubSystem.PivotState.TRANSFER);
+        intake.setExtendoTarget(intakeSubSystem.ExtendoState.TRANSFER);
 
+        time.reset();
+        while(time.time() <= 1.0) {
+            intake.setIntake(intakeSubSystem.IntakeState.REVERSE);
+        }
+
+        intake.setPivot(intakeSubSystem.PivotState.TUCKED);
+        intake.setExtendoTarget(intakeSubSystem.ExtendoState.TUCKED);
+        intake.setIntake(intakeSubSystem.IntakeState.STOP);
     }
 
     @Override

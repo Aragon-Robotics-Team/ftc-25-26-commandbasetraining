@@ -1,6 +1,10 @@
 package org.firstinspires.ftc.teamcode.subSystems;
 
 
+
+
+import static org.firstinspires.ftc.teamcode.Constants.*;
+
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -11,16 +15,16 @@ import org.firstinspires.ftc.teamcode.commands.intakePiece;
 
 public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
 
-    enum PivotState {
+    public enum PivotState {
         INTAKING, TRANSFER, TUCKED
 
     }
 
-    enum ExtendoState {
-        EXTENDED, TRANSFER, TUCKED
+    public enum ExtendoState {
+        EXTENDED, TRANSFER, TUCKED, MID
     }
 
-    enum IntakeState {
+    public enum IntakeState {
         FORWARD, REVERSE, STOP
     }
 
@@ -57,13 +61,13 @@ public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
     public void setPivot(PivotState state) {
         switch (state) {
             case TUCKED:
-                intakeWrist.setPosition(0.0); //replace with constant UP
+                intakeWrist.setPosition(INTAKEWRIST_IN); //replace with constant UP
                 break;
             case TRANSFER:
-                intakeWrist.setPosition(0.0); //replace with constant UP
+                intakeWrist.setPosition(INTAKEWRIST_TRANSFER); //replace with constant UP
                 break;
             case INTAKING:
-                intakeWrist.setPosition(1.0); //replace with constant DOWN
+                intakeWrist.setPosition(INTAKEWRIST_OUT); //replace with constant DOWN
                 break;
 
         }
@@ -73,14 +77,17 @@ public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
     public void setExtendoTarget(ExtendoState state) {
         switch (state) {
             case TUCKED:
-                extendo.setTargetPosition(1); //replace with PID + constants
+                extendo.setTargetPosition(EXTENDO_MIN); //replace with PID + constants
                 break;
             case TRANSFER:
                 // add possible logic like IF already tucked then you don't need to change transfer
-                extendo.setTargetPosition(1); //replace with PID + constants
+                extendo.setTargetPosition(EXTENDO_MIN); //replace with PID + constants
                 break;
             case EXTENDED:
-                extendo.setTargetPosition(1); //replace with PID + constants
+                extendo.setTargetPosition(EXTENDO_MAX); //replace with PID + constants
+                break;
+            case MID:
+                extendo.setTargetPosition(EXTENDO_MED);
                 break;
         }
     }
