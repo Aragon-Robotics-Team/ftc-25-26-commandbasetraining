@@ -31,6 +31,7 @@ public class intakePiece extends CommandBase {
 
     @Override
     public void execute() {
+        //starts in tucked state then goes out does the thing and then it returns to tucked
         intake.setExtendoTarget(intakeSubSystem.ExtendoState.EXTENDED);
         intake.setPivot(intakeSubSystem.PivotState.INTAKING);
 
