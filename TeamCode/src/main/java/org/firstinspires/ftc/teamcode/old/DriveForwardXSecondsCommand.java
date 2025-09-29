@@ -2,6 +2,8 @@ package org.firstinspires.ftc.teamcode.old;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.seattlesolvers.solverslib.command.CommandBase;
 
+import org.firstinspires.ftc.teamcode.subSystems.DriveSubsystem;
+
 public class DriveForwardXSecondsCommand extends CommandBase {
     enum commandState {
         DRIVEFORWARD, TURN, DRIVEFORWARD2;
