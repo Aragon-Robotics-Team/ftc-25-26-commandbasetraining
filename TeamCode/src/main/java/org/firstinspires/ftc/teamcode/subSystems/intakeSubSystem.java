@@ -10,8 +10,6 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.seattlesolvers.solverslib.command.SubsystemBase;
 
-import org.firstinspires.ftc.teamcode.commands.intakePiece;
-
 
 public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
 
@@ -74,22 +72,8 @@ public class intakeSubSystem extends SubsystemBase { //intake subsystem setup
 
     }
 
-    public void setExtendoTarget(ExtendoState state) {
-        switch (state) {
-            case TUCKED:
-                extendo.setTargetPosition(EXTENDO_MIN); //replace with PID + constants
-                break;
-            case TRANSFER:
-                // add possible logic like IF already tucked then you don't need to change transfer
-                extendo.setTargetPosition(EXTENDO_MIN); //replace with PID + constants
-                break;
-            case EXTENDED:
-                extendo.setTargetPosition(EXTENDO_MAX); //replace with PID + constants
-                break;
-            case MID:
-                extendo.setTargetPosition(EXTENDO_MED);
-                break;
-        }
+    public void setExtendoTarget(int target) {
+        extendo.setTargetPosition(target);
     }
 
     public void setIntake(IntakeState state) {
