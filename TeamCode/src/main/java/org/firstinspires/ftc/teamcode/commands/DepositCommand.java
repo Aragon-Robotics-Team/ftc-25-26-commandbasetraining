@@ -1,4 +1,4 @@
-/*package org.firstinspires.ftc.teamcode.commands;
+package org.firstinspires.ftc.teamcode.commands;
 
 import com.seattlesolvers.solverslib.command.SequentialCommandGroup;
 
@@ -12,11 +12,11 @@ public class DepositCommand extends SequentialCommandGroup {
         addCommands(
                 new InstantCommand(() -> depositSubsystem.setPivot(DepositSubsystem.SubsystemState.BUCKET)),
                 new WaitCommand(500),
-                new InstantCommand(() -> depositSubsystem::clawOpen),
+                new InstantCommand(depositSubsystem::clawOpen),
                 new WaitCommand(250),
-                new InstantCommand(depositSubsystem::clawClose())
+                new InstantCommand(depositSubsystem::clawClose),
+                new InstantCommand(() -> depositSubsystem.setPivot(DepositSubsystem.SubsystemState.NEUTRAL))
         );
         addRequirements(depositSubsystem);
     }
 }
-*/
