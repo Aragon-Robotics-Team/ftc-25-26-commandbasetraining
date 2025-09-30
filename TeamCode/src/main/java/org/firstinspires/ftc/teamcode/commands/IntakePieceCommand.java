@@ -6,8 +6,8 @@ import com.seattlesolvers.solverslib.command.SequentialCommandGroup;
 import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.subSystems.IntakeSubSystem;
 
-public class intakePieceCommand extends SequentialCommandGroup {
-    public intakePieceCommand(IntakeSubSystem intake) {
+public class IntakePieceCommand extends SequentialCommandGroup {
+    public IntakePieceCommand(IntakeSubSystem intake) {
         addCommands(
                 //extend
                 new InstantCommand(() -> intake.setExtendoTarget(Constants.EXTENDO_MAX)),
