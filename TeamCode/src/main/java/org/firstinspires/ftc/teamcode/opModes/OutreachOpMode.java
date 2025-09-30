@@ -6,7 +6,7 @@ import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 import com.seattlesolvers.solverslib.gamepad.GamepadKeys;
 
 import org.firstinspires.ftc.teamcode.commands.DepositCommand;
-import org.firstinspires.ftc.teamcode.commands.intakePieceCommand;
+import org.firstinspires.ftc.teamcode.commands.IntakePieceCommand;
 import org.firstinspires.ftc.teamcode.subSystems.DepositSubsystem;
 import org.firstinspires.ftc.teamcode.subSystems.intakeSubSystem;
 
@@ -28,7 +28,7 @@ public class OutreachOpMode extends CommandOpMode {
 
         //intake
         intake = new intakeSubSystem(hardwareMap, "intake");
-        gamePad2.getGamepadButton(GamepadKeys.Button.B).whenPressed(new intakePieceCommand(intake));
+        gamePad2.getGamepadButton(GamepadKeys.Button.B).whenPressed(new IntakePieceCommand(intake));
 
     }
 
