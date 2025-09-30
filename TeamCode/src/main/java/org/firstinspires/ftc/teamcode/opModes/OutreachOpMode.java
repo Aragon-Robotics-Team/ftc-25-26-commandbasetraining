@@ -24,7 +24,7 @@ public class OutreachOpMode extends CommandOpMode {
         intake = new IntakeSubSystem(hardwareMap, "intake");
         gamePad1 = new GamepadEx(gamepad1);
         gamePad1.getGamepadButton(GamepadKeys.Button.A).whenPressed(new BucketCommand(deposit));
-        gamePad1.getGamepadButton(GamepadKeys.Button.B).whenPressed(new TransferCommand(intake));
+        gamePad1.getGamepadButton(GamepadKeys.Button.B).whenPressed(new TransferCommand(intake, deposit));
         gamePad1.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).whenPressed(new InstantCommand(() -> deposit.clawOpen()));
         gamePad1.getGamepadButton(GamepadKeys.Button.LEFT_BUMPER).whenPressed(new InstantCommand(() -> deposit.clawClose()));
     }

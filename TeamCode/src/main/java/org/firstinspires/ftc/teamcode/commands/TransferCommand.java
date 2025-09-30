@@ -8,13 +8,13 @@ import org.firstinspires.ftc.teamcode.subSystems.IntakeSubSystem;
 import org.firstinspires.ftc.teamcode.subSystems.DepositSubsystem;
 
 public class TransferCommand extends SequentialCommandGroup {
-    public TransferCommand(IntakeSubSystem intakeSubsystem) {
+    public TransferCommand(IntakeSubSystem intakeSubsystem, DepositSubsystem depositSubsystem) {
         //retract extendo and intakeWrist to tRansfer
         //bar and wrist to trasnfer
         //close claw
         //bar and wrist to neutral
         //intakewrist to in
-        DepositSubsystem depositSubsystem;
+
 
         addCommands(
                 new InstantCommand(() -> intakeSubsystem.setPivot(IntakeSubSystem.PivotState.TRANSFER)),
