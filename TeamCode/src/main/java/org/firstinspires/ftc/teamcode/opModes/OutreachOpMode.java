@@ -6,7 +6,6 @@ import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 import com.seattlesolvers.solverslib.gamepad.GamepadKeys;
 
 import org.firstinspires.ftc.teamcode.commands.BucketCommand;
-import org.firstinspires.ftc.teamcode.commands.IntakePieceCommand;
 import org.firstinspires.ftc.teamcode.commands.TransferCommand;
 import org.firstinspires.ftc.teamcode.subSystems.DepositSubsystem;
 import org.firstinspires.ftc.teamcode.subSystems.IntakeSubSystem;
@@ -14,7 +13,6 @@ import org.firstinspires.ftc.teamcode.subSystems.IntakeSubSystem;
 @TeleOp(name = "Outreach Teleop")
 public class OutreachOpMode extends CommandOpMode {
     public GamepadEx gamePad1;
-    public GamepadEx gamePad2;
     DepositSubsystem deposit;
     IntakeSubSystem intake;
 
@@ -26,13 +24,7 @@ public class OutreachOpMode extends CommandOpMode {
         gamePad1 = new GamepadEx(gamepad1);
         gamePad1.getGamepadButton(GamepadKeys.Button.A).whenPressed(new BucketCommand(deposit));
         gamePad1.getGamepadButton(GamepadKeys.Button.B).whenPressed(new TransferCommand(intake));
-        gamePad1.getGamepadButton(GamepadKeys.Button.);
-        gamePad2.getGamepadButton(GamepadKeys.Button.A).whenPressed(new BucketCommand(deposit));
-
-        //intake
-        intake = new IntakeSubSystem(hardwareMap, "intake");
-        gamePad2.getGamepadButton(GamepadKeys.Button.B).whenPressed(new IntakePieceCommand(intake));
-
+        gamePad1.getGamepadButton(GamepadKeys.Button.)
     }
 
     @Override

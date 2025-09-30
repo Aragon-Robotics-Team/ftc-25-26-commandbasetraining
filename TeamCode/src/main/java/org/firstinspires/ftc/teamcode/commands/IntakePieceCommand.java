@@ -2,13 +2,12 @@ package org.firstinspires.ftc.teamcode.commands;
 
 import com.seattlesolvers.solverslib.command.InstantCommand;
 import com.seattlesolvers.solverslib.command.SequentialCommandGroup;
-import com.seattlesolvers.solverslib.command.WaitCommand;
 
 import org.firstinspires.ftc.teamcode.Constants;
 import org.firstinspires.ftc.teamcode.subSystems.IntakeSubSystem;
 
-public class IntakePieceCommand extends SequentialCommandGroup {
-    public IntakePieceCommand(IntakeSubSystem intake) {
+public class intakePieceCommand extends SequentialCommandGroup {
+    public intakePieceCommand(IntakeSubSystem intake) {
         addCommands(
                 //extend
                 new InstantCommand(() -> intake.setExtendoTarget(Constants.EXTENDO_MAX)),
