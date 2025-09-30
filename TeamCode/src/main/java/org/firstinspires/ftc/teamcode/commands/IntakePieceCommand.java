@@ -2,16 +2,17 @@ package org.firstinspires.ftc.teamcode.commands;
 
 import com.seattlesolvers.solverslib.command.InstantCommand;
 import com.seattlesolvers.solverslib.command.SequentialCommandGroup;
+import com.seattlesolvers.solverslib.command.WaitCommand;
 
 import org.firstinspires.ftc.teamcode.Constants;
-import org.firstinspires.ftc.teamcode.subSystems.intakeSubSystem;
+import org.firstinspires.ftc.teamcode.subSystems.IntakeSubSystem;
 
 public class IntakePieceCommand extends SequentialCommandGroup {
-    public IntakePieceCommand(intakeSubSystem intake) {
+    public IntakePieceCommand(IntakeSubSystem intake) {
         addCommands(
                 //extend
                 new InstantCommand(() -> intake.setExtendoTarget(Constants.EXTENDO_MAX)),
-                new InstantCommand(() -> intake.setPivot(intakeSubSystem.PivotState.INTAKING)),
+                new InstantCommand(() -> intake.setPivot(IntakeSubSystem.PivotState.INTAKING)),
 
                 //intake
                 //new InstantCommand(() -> intake.setIntake(intakeSubSystem.IntakeState.FORWARD)),
@@ -19,7 +20,7 @@ public class IntakePieceCommand extends SequentialCommandGroup {
                 //new InstantCommand(() -> intake.setIntake(intakeSubSystem.IntakeState.STOP)),
 
                 //retract
-                new InstantCommand(() -> intake.setPivot(intakeSubSystem.PivotState.TRANSFER)),
+                new InstantCommand(() -> intake.setPivot(IntakeSubSystem.PivotState.TRANSFER)),
                 new InstantCommand(() -> intake.setExtendoTarget(Constants.EXTENDO_MIN))
 
                 //transfer

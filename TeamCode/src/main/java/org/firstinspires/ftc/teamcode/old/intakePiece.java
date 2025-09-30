@@ -3,16 +3,16 @@ package org.firstinspires.ftc.teamcode.old;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.seattlesolvers.solverslib.command.CommandBase;
 
-import org.firstinspires.ftc.teamcode.subSystems.intakeSubSystem;
+import org.firstinspires.ftc.teamcode.subSystems.IntakeSubSystem;
 
 public class intakePiece extends CommandBase {
 
     //private final intakeSubSystem flyWheel;
     //private final intakeSubSystem intakeWrist;
-    private final intakeSubSystem intake;
+    private final IntakeSubSystem intake;
     private static ElapsedTime time = new ElapsedTime();
 
-    public intakePiece(intakeSubSystem subSystem) {
+    public intakePiece(IntakeSubSystem subSystem) {
         //flyWheel = subSystem;
         //intakeWrist = subSystem;
         intake = subSystem;
@@ -22,34 +22,34 @@ public class intakePiece extends CommandBase {
     @Override
     public void initialize() {
         //what state do you want to initially start with (like setting motors or opening claws)
-        intake.setPivot(intakeSubSystem.PivotState.TUCKED);
-        intake.setExtendoTarget(intakeSubSystem.ExtendoState.TUCKED);
-        intake.setIntake(intakeSubSystem.IntakeState.STOP);
+        intake.setPivot(IntakeSubSystem.PivotState.TUCKED);
+        intake.setExtendoTarget(IntakeSubSystem.ExtendoState.TUCKED);
+        intake.setIntake(IntakeSubSystem.IntakeState.STOP);
         time.reset();
     }
 
     @Override
     public void execute() {
         //starts in tucked state then goes out does the thing and then it returns to tucked
-        intake.setExtendoTarget(intakeSubSystem.ExtendoState.EXTENDED);
-        intake.setPivot(intakeSubSystem.PivotState.INTAKING);
+        intake.setExtendoTarget(IntakeSubSystem.ExtendoState.EXTENDED);
+        intake.setPivot(IntakeSubSystem.PivotState.INTAKING);
 
         time.reset();
         while(time.time() <= 1.0) {
-            intake.setIntake(intakeSubSystem.IntakeState.FORWARD);
+            intake.setIntake(IntakeSubSystem.IntakeState.FORWARD);
         }
 
-        intake.setPivot(intakeSubSystem.PivotState.TRANSFER);
-        intake.setExtendoTarget(intakeSubSystem.ExtendoState.TRANSFER);
+        intake.setPivot(IntakeSubSystem.PivotState.TRANSFER);
+        intake.setExtendoTarget(IntakeSubSystem.ExtendoState.TRANSFER);
 
         time.reset();
         while(time.time() <= 1.0) {
-            intake.setIntake(intakeSubSystem.IntakeState.REVERSE);
+            intake.setIntake(IntakeSubSystem.IntakeState.REVERSE);
         }
 
-        intake.setPivot(intakeSubSystem.PivotState.TUCKED);
-        intake.setExtendoTarget(intakeSubSystem.ExtendoState.TUCKED);
-        intake.setIntake(intakeSubSystem.IntakeState.STOP);
+        intake.setPivot(IntakeSubSystem.PivotState.TUCKED);
+        intake.setExtendoTarget(IntakeSubSystem.ExtendoState.TUCKED);
+        intake.setIntake(IntakeSubSystem.IntakeState.STOP);
     }
 
     @Override

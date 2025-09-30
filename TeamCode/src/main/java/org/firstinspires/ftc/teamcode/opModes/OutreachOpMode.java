@@ -5,29 +5,32 @@ import com.seattlesolvers.solverslib.command.CommandOpMode;
 import com.seattlesolvers.solverslib.gamepad.GamepadEx;
 import com.seattlesolvers.solverslib.gamepad.GamepadKeys;
 
-import org.firstinspires.ftc.teamcode.commands.DepositCommand;
+import org.firstinspires.ftc.teamcode.commands.BucketCommand;
 import org.firstinspires.ftc.teamcode.commands.IntakePieceCommand;
+import org.firstinspires.ftc.teamcode.commands.TransferCommand;
 import org.firstinspires.ftc.teamcode.subSystems.DepositSubsystem;
-import org.firstinspires.ftc.teamcode.subSystems.intakeSubSystem;
+import org.firstinspires.ftc.teamcode.subSystems.IntakeSubSystem;
 
 @TeleOp(name = "Outreach Teleop")
 public class OutreachOpMode extends CommandOpMode {
+    public GamepadEx gamePad1;
     public GamepadEx gamePad2;
     DepositSubsystem deposit;
-    intakeSubSystem intake;
+    IntakeSubSystem intake;
 
     @Override
     public void initialize () {
         super.reset();
-        //assigning gamepad
-        gamePad2 = new GamepadEx(gamepad2);
-
-        //deposit
         deposit = new DepositSubsystem(hardwareMap, "deposit");
-        gamePad2.getGamepadButton(GamepadKeys.Button.A).whenPressed(new DepositCommand(deposit));
+        intake = new IntakeSubSystem(hardwareMap, "intake");
+        gamePad1 = new GamepadEx(gamepad1);
+        gamePad1.getGamepadButton(GamepadKeys.Button.A).whenPressed(new BucketCommand(deposit));
+        gamePad1.getGamepadButton(GamepadKeys.Button.B).whenPressed(new TransferCommand(intake));
+        gamePad1.getGamepadButton(GamepadKeys.Button.);
+        gamePad2.getGamepadButton(GamepadKeys.Button.A).whenPressed(new BucketCommand(deposit));
 
         //intake
-        intake = new intakeSubSystem(hardwareMap, "intake");
+        intake = new IntakeSubSystem(hardwareMap, "intake");
         gamePad2.getGamepadButton(GamepadKeys.Button.B).whenPressed(new IntakePieceCommand(intake));
 
     }
