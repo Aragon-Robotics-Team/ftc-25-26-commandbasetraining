@@ -20,7 +20,7 @@ public class DepositSubsystem extends SubsystemBase {
     private SubsystemState depositState = SubsystemState.NEUTRAL;
 
     public DepositSubsystem(final HardwareMap hMap) {
-        bar = hMap.get(Servo.class, "bar");
+        //bar = hMap.get(Servo.class, "bar");
         wrist = hMap.get(Servo.class, "wrist");
         claw = hMap.get(Servo.class, "claw");
     }
@@ -36,27 +36,27 @@ public class DepositSubsystem extends SubsystemBase {
     public void setPivot(SubsystemState state) {
         switch (state) {
             case TRANSFER:
-                bar.setPosition(Constants.BAR_TRANSFER);
+                //bar.setPosition(Constants.BAR_TRANSFER);
                 wrist.setPosition(Constants.WRIST_TRANSFER);
                 break;
             case AUTOINIT:
-                bar.setPosition(Constants.BAR_AUTOINIT);
+                //bar.setPosition(Constants.BAR_AUTOINIT);
                 wrist.setPosition(Constants.WRIST_AUTOINIT);
                 break;
             case WALL:
-                bar.setPosition(Constants.BAR_WALL);
+                //bar.setPosition(Constants.BAR_WALL);
                 wrist.setPosition(Constants.WRIST_WALL);
                 break;
             case BUCKET:
-                bar.setPosition(Constants.BAR_BUCKET);
+                //bar.setPosition(Constants.BAR_BUCKET);
                 wrist.setPosition(Constants.WRIST_BUCKET);
                 break;
             case CLIP:
-                bar.setPosition(Constants.BAR_CLIP);
+                //bar.setPosition(Constants.BAR_CLIP);
                 wrist.setPosition(Constants.WRIST_CLIP);
                 break;
             case NEUTRAL:
-                bar.setPosition(Constants.BAR_NEUTRAL);
+                //bar.setPosition(Constants.BAR_NEUTRAL);
                 wrist.setPosition(Constants.WRIST_NEUTRAL);
                 break;
         }
