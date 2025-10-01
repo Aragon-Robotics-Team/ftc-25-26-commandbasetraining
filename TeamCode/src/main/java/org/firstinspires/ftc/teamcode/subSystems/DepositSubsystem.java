@@ -19,7 +19,7 @@ public class DepositSubsystem extends SubsystemBase {
 
     private SubsystemState depositState = SubsystemState.NEUTRAL;
 
-    public DepositSubsystem(final HardwareMap hMap, final String name) {
+    public DepositSubsystem(final HardwareMap hMap) {
         bar = hMap.get(Servo.class, "bar");
         wrist = hMap.get(Servo.class, "wrist");
         claw = hMap.get(Servo.class, "claw");

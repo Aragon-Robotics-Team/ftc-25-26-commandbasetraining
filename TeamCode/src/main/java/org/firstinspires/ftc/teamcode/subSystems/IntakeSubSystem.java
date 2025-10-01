@@ -34,7 +34,7 @@ public class IntakeSubSystem extends SubsystemBase { //intake subsystem setup
     private DcMotor flyWheel;
     //methods: setPivot, setExtendoTarget, setIntake
 
-    public IntakeSubSystem(final HardwareMap hMap, final String name) {
+    public IntakeSubSystem(final HardwareMap hMap) {
         intakeWrist = hMap.get(Servo.class, "intakeWrist"); //do not to specify run using when servo
         flyWheel = hMap.get(DcMotor.class, "intake");
         flyWheel.setMode(DcMotor.RunMode.RUN_USING_ENCODER); // make sure to specify run mode when using DCMOTOR

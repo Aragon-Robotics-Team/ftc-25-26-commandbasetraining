@@ -20,8 +20,8 @@ public class OutreachOpMode extends CommandOpMode {
     @Override
     public void initialize () {
         super.reset();
-        deposit = new DepositSubsystem(hardwareMap, "deposit");
-        intake = new IntakeSubSystem(hardwareMap, "intake");
+        deposit = new DepositSubsystem(hardwareMap);
+        intake = new IntakeSubSystem(hardwareMap);
         gamePad1 = new GamepadEx(gamepad1);
         gamePad1.getGamepadButton(GamepadKeys.Button.A).whenPressed(new BucketCommand(deposit));
         gamePad1.getGamepadButton(GamepadKeys.Button.B).whenPressed(new TransferCommand(intake, deposit));
