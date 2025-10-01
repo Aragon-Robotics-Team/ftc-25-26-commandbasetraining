@@ -12,7 +12,7 @@ public class DriveSubsystem extends SubsystemBase {
     private DcMotor backRight;
     private DcMotor backLeft;
 
-    public DriveSubsystem(final HardwareMap hMap, final String name) {
+    public DriveSubsystem(final HardwareMap hMap) {
         frontRight = hMap.get(DcMotor.class, "rightFront");
         frontLeft = hMap.get(DcMotor.class, "leftFront");
         backRight = hMap.get(DcMotor.class, "rightRear");
