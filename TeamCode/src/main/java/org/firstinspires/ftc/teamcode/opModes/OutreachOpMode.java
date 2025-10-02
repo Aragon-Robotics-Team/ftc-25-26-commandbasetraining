@@ -12,9 +12,10 @@ import org.firstinspires.ftc.teamcode.commands.BucketCommand;
 import org.firstinspires.ftc.teamcode.commands.TransferCommand;
 import org.firstinspires.ftc.teamcode.pedroPathing.Constants;
 import org.firstinspires.ftc.teamcode.subSystems.DepositSubsystem;
+import org.firstinspires.ftc.teamcode.subSystems.DriveSubsystem;
 import org.firstinspires.ftc.teamcode.subSystems.IntakeSubSystem;
 
-@TeleOp(name = "Outreach Teleop")
+@TeleOp(name = "Outreach Teleop", group = "eioroijwoerij")
 public class OutreachOpMode extends CommandOpMode {
     private Follower follower;
     public static Pose startingPose = new Pose(0,0,0);
@@ -23,22 +24,24 @@ public class OutreachOpMode extends CommandOpMode {
 
 
 
-    public GamepadEx driver1 = new GamepadEx(gamepad1);;
+    public GamepadEx driver1;
     DepositSubsystem deposit;
     IntakeSubSystem intake;
+    DriveSubsystem drive;
 
     @Override
     public void initialize () {
 
         super.reset();
 
-        follower = Constants.createFollower(hardwareMap);
-        follower.setStartingPose(startingPose == null ? new Pose() : startingPose);
-        follower.update();
+//        follower = Constants.createFollower(hardwareMap);
+//        follower.setStartingPose(startingPose == null ? new Pose() : startingPose);
+//        follower.update();
 
-
+        driver1 = new GamepadEx(gamepad1);
         deposit = new DepositSubsystem(hardwareMap);
         intake = new IntakeSubSystem(hardwareMap);
+        drive = new DriveSubsystem(hardwareMap);
         driver1.getGamepadButton(GamepadKeys.Button.A).whenPressed(new BucketCommand(deposit));
         driver1.getGamepadButton(GamepadKeys.Button.B).whenPressed(new TransferCommand(intake, deposit));
         driver1.getGamepadButton(GamepadKeys.Button.RIGHT_BUMPER).whenPressed(new InstantCommand(() -> deposit.clawOpen()));
@@ -48,8 +51,8 @@ public class OutreachOpMode extends CommandOpMode {
 
     @Override
     public void run() {
-        follower.setTeleOpDrive(driver1.getLeftY(), driver1.getLeftX(), driver1.getRightX(), true);
-        follower.update();
+        drive.setDriveVectors(driver1.getLeftX(), driver1.getLeftY(), driver1.getRightX());
+//        follower.update();
         super.run();
     }
 }
